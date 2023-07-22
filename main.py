@@ -11,8 +11,8 @@ def openFile():
     filename_label.configure(text=filename)    
     outputfile_text.delete("1.0", tkinter.END)
     reader = PyPDF2.PdfReader(filename)
-    for i in range (reader.numPages):
-        current_text = reader.getPage(i).extractText()
+    for i in range (len(reader.pages)):
+        current_text = reader.pages[i].extract_text()
         outputfile_text.insert(tkinter.END, current_text)
 
 
